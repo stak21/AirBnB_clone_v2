@@ -21,7 +21,8 @@ server {
 	add_header X-Served-By \$hostname;	
 
 	location / {
-		root index.html;
+		root /srv/www;
+		index index.html;
 	}
 
 	location /redirect_me {
