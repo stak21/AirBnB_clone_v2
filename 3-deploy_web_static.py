@@ -23,12 +23,12 @@ def do_pack():
         Otherwise Return: None
     """
     local("mkdir -p ./versions")
-    res = local("tar czvf ./versions/web_static_{}.tgz ./web_static/*".format(date))
+    res = local("tar czvf ./versions/web_static_{}.tgz\
+            ./web_static/*".format(date))
     if res.succeeded:
         return "./versions/web_static_{}.tgz".format(date)
     else:
         return None
-    
 
 
 def do_deploy(archive_path):
