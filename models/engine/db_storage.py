@@ -13,8 +13,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.schema import MetaData
 from os import environ
 
-# TODO When do we close the session? Does the session close?
-
 
 class DBStorage():
     """Defines the DBStorage class"""
@@ -39,20 +37,26 @@ class DBStorage():
         """Performs a query on the current database session
            cls is an object, not a string.
         """
-        object_types = [User, State, City, Amenity, Place, Review]
+        object_types = {'User': User, 'State': State, 'City': City, 'Amenity': Amenity
+                , 'Place': Place, 'Review': Review}
         object_dict = {}
 
         if cls is None:
-            for my_type in object_types:
+            print("if")
+            for my_type in object_types.keys():
                 for obj in self.__session.query(my_type).all():
                     key = obj.__class__.__name__ + '.' + obj.id
                     object_dict[key] = obj
         else:
+            cls = object_types[cls]
             for obj in self.__session.query(cls).all():
                 key = obj.__class__.__name__ + '.' + obj.id
                 object_dict[key] = obj
 
         return object_dict
+
+    def close(self):
+        self.__session.close()
 
     def new(self, obj):
         """Adds the object to the current database session"""
