@@ -79,7 +79,7 @@ class TestFileStorage(unittest.TestCase):
         storage = FileStorage()
         obj = storage.all(User)
         self.assertIsNotNone(obj)
-        self.assertEqual(type(obj), list)
+        self.assertEqual(type(obj), dict)
         self.assertIsNot(obj, {})
         self.assertIsNot(obj, storage._FileStorage__objects)
 
