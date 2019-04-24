@@ -37,8 +37,8 @@ class DBStorage():
         """Performs a query on the current database session
            cls is an object, not a string.
         """
-        object_types = {'User': User, 'State': State, 'City': City, 'Amenity': Amenity
-                , 'Place': Place, 'Review': Review}
+        object_types = {'User': User, 'State': State, 'City': City,
+                        'Amenity': Amenity, 'Place': Place, 'Review': Review}
         object_dict = {}
 
         if cls is None:
