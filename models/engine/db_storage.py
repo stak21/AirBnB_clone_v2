@@ -48,7 +48,8 @@ class DBStorage():
                     key = obj.__class__.__name__ + '.' + obj.id
                     object_dict[key] = obj
         else:
-            cls = object_types[cls]
+            if isinstance(cls, str):
+                cls = object_types[cls]
             for obj in self.__session.query(cls).all():
                 key = obj.__class__.__name__ + '.' + obj.id
                 object_dict[key] = obj
