@@ -75,4 +75,8 @@ class FileStorage:
             except:
                 pass
 
-    """ should i save the new updated objects? """
+    def close(self):
+         """ calls reload after deserializing the JSON file to objects """
+         self.reload()
+
+
