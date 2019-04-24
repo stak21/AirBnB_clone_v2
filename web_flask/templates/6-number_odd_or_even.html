@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{%- block content -%}
+	{%- if n%2 == 0 -%}
+	<H1>Number: {{ n }} is even
+	{%- else -%}
+	<H1>Number: {{ n }} is odd
+	{%- endif -%}
+</H1>
+{%- endblock content %}
