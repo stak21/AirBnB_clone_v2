@@ -42,9 +42,8 @@ class DBStorage():
         object_dict = {}
 
         if cls is None:
-            print("if")
             for my_type in object_types.keys():
-                for obj in self.__session.query(my_type).all():
+                for obj in self.__session.query(object_types[my_type]).all():
                     key = obj.__class__.__name__ + '.' + obj.id
                     object_dict[key] = obj
         else:
