@@ -33,7 +33,7 @@ class FileStorage:
             for k, v in self.__objects.items():
                 if type(v) == cls:
                     new_dict[k] = v
-            return new_dict 
+            return new_dict
 
     def new(self, obj):
         """sets __object to given obj
