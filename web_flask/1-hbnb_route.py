@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-from flask import Flask
+"""Routers and Controllers"""
+from flask import Flask, render_template
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
