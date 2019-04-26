@@ -13,9 +13,8 @@ def tearDown(self):
 
 @app.route('/states_list')
 def list_states_route():
-    states = storage.all()
-    li = [value for value in states.values()]
-    return render_template('7-states_list.html', states=li)
+    states = storage.all("State").values()
+    return render_template('7-states_list.html', states=states)
 
 if __name__ == "__main__":
     app.run(port=5000, host='0.0.0.0')
