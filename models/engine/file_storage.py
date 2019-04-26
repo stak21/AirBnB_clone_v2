@@ -29,9 +29,13 @@ class FileStorage:
         if cls is None:
             return self.__objects
         else:
+            if isinstance(cls, str):
+                cls = eval("{}".format(cls))
             new_dict = {}
             for k, v in self.__objects.items():
+                print("{}: {}".format(k, v))
                 if type(v) == cls:
+                    print("adding\n")
                     new_dict[k] = v
             return new_dict
 
