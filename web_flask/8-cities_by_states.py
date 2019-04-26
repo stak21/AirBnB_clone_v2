@@ -12,7 +12,7 @@ def tearDown(self):
 
 
 @app.route('/cities_by_states')
-def list_states_route():
+def list_states_cities_route():
     states = storage.all("State").values()
     return render_template('8-cities_by_states.html', states=states)
 
